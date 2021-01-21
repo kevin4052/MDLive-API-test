@@ -1,8 +1,8 @@
 // ============ File Imports ==================
 require('dotenv').config();
 
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 // const path = require("path");
 
 const app = express();
@@ -17,10 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // ============== GLOBAL VARIABLES ==================
 
 // default value for title local
-app.locals.title = "Express Routes Example";
-
+app.locals.title = 'Express Routes Example';
 
 // ===================== ROUTES =====================
-app.use("/api", require("./routes/index.routes"));
+app.use('/api', require('./routes/index.routes'));
 
 module.exports = app;
