@@ -5,13 +5,15 @@ const appSchema = new Schema(
     id: {
       type: Number,
       required: true,
+      unique: true,
     },
     name: {
       type: String,
       required: true,
+      unique: true,
     },
   },
   { timestamps: true }
 );
 
-module.exports = model('Apps', appSchema);
+module.exports = model('App', appSchema);

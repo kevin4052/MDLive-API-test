@@ -14,7 +14,7 @@ App.collection.drop();
 
 App.create(appList)
   .then((appsFromDB) => {
-    console.log({ appsFromDB });
+    console.log(`seeded apps: ${appsFromDB.length}`);
 
     setTimeout(() => {
       mongoose.disconnect();
