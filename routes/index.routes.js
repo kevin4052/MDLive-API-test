@@ -13,21 +13,37 @@ const queryParser = (query) => (query ? JSON.parse(query) : {});
 // checks if a query key is included in the enum list
 const keyValidator = (key, enumList) => enumList.includes(key);
 
+// checks if object has any keys
+const emptyObject = (obj) => Object.keys(obj).length === 0;
+
 /* ==================== GET: apps API end point ==================== */
 router.get('/apps', (req, res) => {
   const range = queryParser(req.query.range);
-  const { by = 'id', start = 0, end = 50, max = 50, order = 'asc' } = range;
+  const { by, start = 0, end = 50, max = 50, order = 'asc' } = range;
 
-  if (!keyValidator(by, byEnumList)) {
-    res.status(400).json({
-      message: `Bad input parameter. Search query 'by' can only be 'id' or 'name'.`,
-    });
-  }
+  // if the range search query exists
+  // then check if it is a valid query
+  if (!emptyObject(range)) {
+    if (by === undefined) {
+      res.status(400).json({
+        message: `Search query parameter 'by' is required.`,
+      });
+      return;
+    }
 
-  if (!keyValidator(order, orderEnumList)) {
-    res.status(400).json({
-      message: `Bad input parameter. Search query 'order' can only be 'asc' or 'desc'`,
-    });
+    if (!keyValidator(by, byEnumList)) {
+      res.status(400).json({
+        message: `Search query parameter 'by' can only be 'id' or 'name'.`,
+      });
+      return;
+    }
+
+    if (!keyValidator(order, orderEnumList)) {
+      res.status(400).json({
+        message: `Search query parameter 'order' can only be 'asc' or 'desc'`,
+      });
+      return;
+    }
   }
 
   const search =
