@@ -3,8 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-// ====== require database configuration ======
-require('./configs/db.config');
+// ================= Database =================
+// require('./configs/db.config');
 
 // ================== ROUTES ==================
 app.use('/api', require('./routes/index.routes'));

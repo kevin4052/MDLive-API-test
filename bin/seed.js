@@ -1,23 +1,48 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const App = require('../models/App.model');
-const appList = [];
+const db = require('../configs/db.config');
 
-for (let i = 0; i < 100; i++) {
-  appList.push({ id: i, name: `my-app-${String(i).padStart(3, 0)}` });
-}
+const createData = () => {
+  const appList = [];
 
-console.log(appList.length);
+  for (let i = 0; i < 100; i++) {
+    appList.push({ id: i, name: `my-app-${String(i).padStart(3, 0)}` });
+  }
 
-require('../configs/db.config');
+  return appList;
+};
 
-App.collection.drop();
+const seed = () => {
+  if (process.env.NODE_ENV === 'test') {
+    App.collection.drop();
 
-App.create(appList)
-  .then((appsFromDB) => {
-    console.log(`seeded apps: ${appsFromDB.length}`);
+    App.create(createData())
+      .then((appsFromDB) => {
+        // console.log(`seeded test apps: ${appsFromDB.length}`);
+      })
+      .catch((err) =>
+        console.log(`Error seeding test database with apps: ${err}`)
+      );
+  } else {
+    db.connect().then(() => {
+      App.collection.drop();
 
-    setTimeout(() => {
-      mongoose.disconnect();
-    }, 2000);
-  })
-  .catch((err) => console.log(`Error seeding database with apps: ${err}`));
+      App.create(createData())
+        .then((appsFromDB) => {
+          console.log(`seeded apps: ${appsFromDB.length}`);
+
+          setTimeout(() => {
+            db.close();
+          }, 2000);
+        })
+        .catch((err) =>
+          console.log(`Error seeding database with apps: ${err}`)
+        );
+    });
+  }
+};
+
+seed();
+
+module.exports = { seed, createData };
