@@ -19,7 +19,7 @@ const emptyObject = (obj) => Object.keys(obj).length === 0;
 /* ==================== GET: apps API end point ==================== */
 router.get('/apps', (req, res) => {
   const range = queryParser(req.query.range);
-  const { by, start = 0, end = 50, max = 50, order = 'asc' } = range;
+  let { by, start = 0, end, max = 50, order = 'asc' } = range;
 
   // if the range search query exists
   // then check if it is a valid query
@@ -40,15 +40,17 @@ router.get('/apps', (req, res) => {
 
     if (!keyValidator(order, orderEnumList)) {
       res.status(400).json({
-        message: `Search query parameter 'order' can only be 'asc' or 'desc'`,
+        message: `Search query parameter 'order' can only be 'asc' or 'desc'.`,
       });
       return;
     }
+  } else {
+    by = 'id';
   }
 
   const search =
     by === 'id'
-      ? { id: { $gte: +start, $lte: +end } }
+      ? { id: { $gte: +start, $lte: end ? +end : start + max - 1 } }
       : {
           name: {
             $gte: start,

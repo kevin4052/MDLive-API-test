@@ -22,7 +22,7 @@
     "test": "jest",
     "dev": "nodemon ./bin/server.js",
     "start": "node ./bin/server.js",
-    "seed": "cd bin/ && node -e \" const seed = require('./seed.js'); seed()\" "
+    "seed": "node ./bin/seed.js"
   },
   "repository": {
     "type": "git",
