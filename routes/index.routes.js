@@ -45,7 +45,7 @@ router.get('/apps', (req, res) => {
       return;
     }
   } else {
-    by = 'id';
+    by = by || 'id';
   }
 
   const search =
@@ -57,7 +57,12 @@ router.get('/apps', (req, res) => {
             $lte:
               typeof end === 'number'
                 ? `my-app-${String(end).padStart(3, 0)}`
-                : end,
+                : end
+                ? end
+                : `my-app-${String(Number(start.split('-')[2]) + max).padStart(
+                    3,
+                    0
+                  )}`,
           },
         };
 
