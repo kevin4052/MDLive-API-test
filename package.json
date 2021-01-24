@@ -22,8 +22,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "dev": "nodemon ./bin/server.js",
+    "start": "node ./bin/server.js"
   },
   "repository": {
     "type": "git",
