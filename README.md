@@ -14,6 +14,10 @@ observed across the web, but all of them share common characteristics.
 
 ## Challenge
 
+The challenge was to build a simple HTTP API endpoint that would perform pagination and write testing scripts to automaticly test the API's performance.
+
+The server app is built with express.js and connected to a mongoDB database. Because of the built in search and filter methods provided by Mongoose.js, the logic of the endpoint is mainly focused on creating and validating the search parameters to request only the information needed from the database. Once the documents are retrieved, a map function is used to create an array with the ids and names of the apps and then send the res.json().
+
 ## Setup
 
 ### Installation
@@ -52,5 +56,6 @@ observed across the web, but all of them share common characteristics.
 - [Node.js](https://nodejs.org/) - JavaScript server environment
 - [Express.js](https://expressjs.com/) - Back end web application framework for Node.js
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/) - Database
+- [Mongoose.js](https://mongoosejs.com/) asynchronous MongoDB tool
 - [Jest](https://jestjs.io/) - JavaScript testing framework
 - [Supertest](https://www.npmjs.com/package/supertest) - HTTP Testing
