@@ -16,7 +16,9 @@ observed across the web, but all of them share common characteristics.
 
 The challenge was to build a simple HTTP API endpoint that would perform pagination and write testing scripts to automaticly test the API's performance.
 
-The server app is built with express.js and connected to a mongoDB database. Because of the built in search and filter methods provided by Mongoose.js, the logic of the endpoint is mainly focused on creating and validating the search parameters to request only the information needed from the database. Once the documents are retrieved, a map function is used to create an array with the ids and names of the apps and then send the res.json().
+The server app is built with express.js and connected to a mongoDB database. Because of the built in search and filter methods provided by Mongoose.js, the logic of the endpoint is mainly focused on creating and validating the search parameters to request only the information needed from the database. Once the documents are retrieved, a map function is used to create an array with the ids and names of the apps before sending the res.json().
+
+The next step was creating some unit testing scripts with Jest.js. These tests exposed a few edge case bugs and drove some TDD to complete the API endpoint.
 
 ## Setup
 
