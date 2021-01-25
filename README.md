@@ -51,7 +51,7 @@ The next step was creating some unit testing scripts with Jest.js. These tests e
 
 - The unit testing is handled with Jest.js and SuperTest.js.
 - To run the Jest.js tests use `npm run test`.
-- The script with connect to a test database and seed it with app data.
+- The script will connect to a test database and seed it with app data before running the testing scripts.
 
 ## Technologies Used
 
