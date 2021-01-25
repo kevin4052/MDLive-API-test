@@ -13,25 +13,30 @@ observed across the web, but all of them share common characteristics.
 
 ## setup
 
-api root
-[`https://apps-api-test.herokuapp.com/api/apps`](https://apps-api-test.herokuapp.com/api/apps)
-
 ### Installation
 
 - Make sure that you have Node.js and MongoDB installed
 - Clone the repo
 - Install the dependencies with: `npm install` or `yarn install`
 - Create `.env` in the root of the app and define the enviroment variables
-  | Environment Variables | Description | Default |
+
+  | Environment Variables | Description                         | Default                                  |
   | --------------------- | :---------------------------------- | :--------------------------------------- |
-  | PORT | Port for the backend express server | 5000 |
-  | MONGODB_URI | URI to log into mongodb | mongodb://localhost/mdlive-apps-api |
-  | MONGODB_URI_TEST | URI to log into test mongodb | mongodb://localhost/mdlive-apps-api-test |
+  | PORT                  | Port for the backend express server | 5000                                     |
+  | MONGODB_URI           | URI to log into mongodb             | mongodb://localhost/mdlive-apps-api      |
+  | MONGODB_URI_TEST      | URI to log into test mongodb        | mongodb://localhost/mdlive-apps-api-test |
+
 - Seed the database by running `yarn seed` or `npm run seed` in the root directory
 - Run the local backend server using `npm start` or `yarn start`
 - Open `http://localhost:5000` and Have fun!
 
-## API Documentation
+## Example End Points
+
+[`https://apps-api-test.herokuapp.com/api/apps`](https://apps-api-test.herokuapp.com/api/apps)
+[`/apps?range={"by":"id"}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id"})
+[`/apps?range={"by":"id","start":5}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id","start":5})
+[`/apps?range={"by":"id","start":1,"end":5}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id","start":1,"end":5})
+[`/apps?range={"by":"name","start":"my-app-001","end":"my-app-050","max":10,"order":"asc"}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"name","start":"my-app-001","end":"my-app-050","max":10,"order":"asc"})
 
 ## Unit Testing
 
