@@ -8,8 +8,8 @@ observed across the web, but all of them share common characteristics.
 
 - [Challenge](#challenge)
 - [Setup](#setup)
-- [API Documentation](#api-documentation)
 - [Unit Testing](#integrated-testing)
+- [Example End Points](#example-end-points)
 - [Technologies Used](#Technologies-Used)
 
 ## Challenge
