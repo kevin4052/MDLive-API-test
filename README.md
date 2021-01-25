@@ -32,11 +32,11 @@ observed across the web, but all of them share common characteristics.
 
 ## Example End Points
 
-[`https://apps-api-test.herokuapp.com/api/apps`](https://apps-api-test.herokuapp.com/api/apps)
-[`/apps?range={"by":"id"}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id"})
-[`/apps?range={"by":"id","start":5}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id","start":5})
-[`/apps?range={"by":"id","start":1,"end":5}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id","start":1,"end":5})
-[`/apps?range={"by":"name","start":"my-app-001","end":"my-app-050","max":10,"order":"asc"}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"name","start":"my-app-001","end":"my-app-050","max":10,"order":"asc"})
+- [`https://apps-api-test.herokuapp.com/api/apps`](https://apps-api-test.herokuapp.com/api/apps)
+- [`/apps?range={"by":"id"}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id"})
+- [`/apps?range={"by":"id","start":5}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id","start":5})
+- [`/apps?range={"by":"id","start":1,"end":5}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"id","start":1,"end":5})
+- [`/apps?range={"by":"name","start":"my-app-001","end":"my-app-050","max":10,"order":"asc"}`](https://apps-api-test.herokuapp.com/api/apps?range={"by":"name","start":"my-app-001","end":"my-app-050","max":10,"order":"asc"})
 
 ## Unit Testing
 
