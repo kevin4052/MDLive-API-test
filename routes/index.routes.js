@@ -7,7 +7,7 @@ const orderEnumList = ['asc', 'desc'];
 
 /*======================== helper functions ========================*/
 
-// parses req.query.range is it exists
+// parses req.query.range if it exists
 const queryParser = (query) => (query ? JSON.parse(query) : {});
 
 // checks if a query key is included in the enum list
